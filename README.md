@@ -47,7 +47,7 @@ Start Geth:
 -- run starting geth command:
 ```
 ```bash
-$ ./geth --mainnet --http --http.api eth,net,engine,admin,web3,debug,txpool --ws --ws.port 8546 --ws.api eth,net,web3,txpool,debug --authrpc.jwtsecret=/home/mich/ethereum/jwt.hex --cache=8192 --maxpeers=50
+./geth --mainnet --http --http.api eth,net,engine,admin,web3,debug,txpool --ws --ws.port 8546 --ws.api eth,net,web3,txpool,debug --authrpc.jwtsecret=/home/mich/ethereum/jwt.hex --cache=8192 --maxpeers=50
 ```
 Open a new terminal and SSH to your server
 
@@ -57,15 +57,15 @@ Start Prysm (beacon-node):
 -- run starting prysm command (once your node is synced, remove the checkpoints from the arguments):
 ```
 ```bash
-$ ./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --mainnet --jwt-secret=/home/mich/ethereum/jwt.hex --checkpoint-sync-url=https://sync-mainnet.beaconcha.in --genesis-beacon-api-url=https://sync-mainnet.beaconcha.in --p2p-max-peers=30
+./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --mainnet --jwt-secret=/home/mich/ethereum/jwt.hex --checkpoint-sync-url=https://sync-mainnet.beaconcha.in --genesis-beacon-api-url=https://sync-mainnet.beaconcha.in --p2p-max-peers=30
 ```
 
 The following command are useful to check the status:
 ```
-$ ./prysm.sh beacon-chain --version
-$ ./geth version
-$ curl http://localhost:3500/eth/v1/node/syncing | jq
-$ ./geth attach http://localhost:8545
+./prysm.sh beacon-chain --version
+./geth version
+curl http://localhost:3500/eth/v1/node/syncing | jq
+./geth attach http://localhost:8545
 ```
 Note: You need to have the knowledge of the output of the above checking status command, if not please learn it first or asking Claude 3.7
 During the syncing process, you will see lots of warnings and errors, you need to identify which errors you need to deal with, and which not.
